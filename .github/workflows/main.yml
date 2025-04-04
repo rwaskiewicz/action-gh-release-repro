@@ -21,6 +21,7 @@ jobs:
           files: |
             *hello*
           draft: true
+          tag_name: ${{ github.run_number }}
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_unmatched_files: true
 
@@ -33,6 +34,7 @@ jobs:
           files: |
             *world*
           draft: true
+          tag_name: ${{ github.run_number }}
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_unmatched_files: true
 
