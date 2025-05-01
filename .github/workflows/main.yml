@@ -20,7 +20,7 @@ jobs:
         with:
           files: |
             *hello*
-          draft: true
+          draft: false
           tag_name: ${{ github.run_number }}
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_unmatched_files: true
