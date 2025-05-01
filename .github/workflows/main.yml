@@ -25,29 +25,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_unmatched_files: true
 
-      - name: Sleep
-        run: sleep 5
-
-      - name: Upload World File to Release
-        uses: rwaskiewicz/action-gh-release@0cf0a1da97158a8ccab7aae8ba6e6af8087f8e4c
+      - name: "Append changelog"
+        uses: softprops/action-gh-release@v2
         with:
-          files: |
-            *world*
-          draft: true
-          tag_name: ${{ github.run_number }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fail_on_unmatched_files: true
-
-      - name: Create and Push Release Tag
-        run: |
-          git config user.name "versioning-tool"
-          git config user.email "noop@gh.com"
-
-          create_and_push_tag() {
-            local tag="$1"
-            local message="$2"
-            echo "Creating tag: $tag"
-            git tag -fa "$tag" -m "$message"
-            git push origin "$tag" --force
-          }
-          create_and_push_tag "${{ github.run_number }}" "Release ${{ github.run_number }}"
+          append_body: true
+          body: |
+            ## Changelog for ${{ github.run_number }}
+            Some text
+          tag_name: "${{ github.run_number }}"
