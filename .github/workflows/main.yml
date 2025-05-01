@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Upload Hello File to Release
-        uses: rwaskiewicz/action-gh-release@0cf0a1da97158a8ccab7aae8ba6e6af8087f8e4c
+        uses: rwaskiewicz/action-gh-release@v4.2.1
         with:
           files: |
             *hello*
