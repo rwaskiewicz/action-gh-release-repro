@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Upload Hello File to Release
-        uses: softprops/action-gh-release@8bb72078753d3b560d25d418f586567620b568ef
+        uses: rwaskiewicz/action-gh-release@bba3a0ff04813d4ff9013f07b959a4da8d1cacbd
         with:
           files: |
             *hello*
@@ -26,7 +26,7 @@ jobs:
           fail_on_unmatched_files: true
 
       - name: "Append changelog"
-        uses: softprops/action-gh-release@8bb72078753d3b560d25d418f586567620b568ef
+        uses: rwaskiewicz/action-gh-release@bba3a0ff04813d4ff9013f07b959a4da8d1cacbd
         with:
           append_body: true
           body: |
